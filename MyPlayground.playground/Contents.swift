@@ -6,10 +6,15 @@ import MagicalGridiOS
 let containerView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 375.0, height: 667.0))
 containerView.backgroundColor = .white
 
-for i in 0...5 {
+//: Render boxes on a horizontal row
+let numberOfBoxesPerRow = 15
+let width = containerView.frame.width / CGFloat(numberOfBoxesPerRow)
+
+
+for i in 0...numberOfBoxesPerRow {
   let redView = UIView()
   redView.backgroundColor = randomColor()
-  redView.frame = CGRect(x: Double(i) * 100, y: 0.0, width: 100.0, height: 100.0)
+  redView.frame = CGRect(x: CGFloat(i) * width, y: 0.0, width: width, height: width)
   containerView.addSubview(redView)
 }
 

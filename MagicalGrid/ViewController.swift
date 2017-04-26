@@ -13,10 +13,13 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    for i in 0...5 {
+    let numberOfBoxesPerRow = 15
+    let width = view.frame.width / CGFloat(numberOfBoxesPerRow)
+    
+    for i in 0...numberOfBoxesPerRow {
       let redView = UIView()
       redView.backgroundColor = randomColor()
-      redView.frame = CGRect(x: i * 100, y: 0, width: 100, height: 100)
+      redView.frame = CGRect(x: CGFloat(i) * width, y: 0, width: width, height: width)
       view.addSubview(redView)
     }
     
