@@ -10,13 +10,20 @@ containerView.backgroundColor = .white
 let numberOfBoxesPerRow = 15
 let width = containerView.frame.width / CGFloat(numberOfBoxesPerRow)
 
+//: Render horizontal rows vertically -> stack them up!
+let numberOfRows = 30
 
-for i in 0...numberOfBoxesPerRow {
-  let redView = UIView()
-  redView.backgroundColor = randomColor()
-  redView.frame = CGRect(x: CGFloat(i) * width, y: 0.0, width: width, height: width)
-  containerView.addSubview(redView)
+
+for j in 0...numberOfRows {
+  for i in 0...numberOfBoxesPerRow {
+    let redView = UIView()
+    redView.backgroundColor = randomColor()
+    redView.frame = CGRect(x: CGFloat(i) * width, y: CGFloat(j) * width, width: width, height: width)
+    containerView.addSubview(redView)
+  }
 }
+
+
 
 
 
