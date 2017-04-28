@@ -19,10 +19,12 @@ class ViewController: UIViewController {
     
     for j in 0...numberOfRows {
       for i in 0...numberOfBoxesPerRow {
-        let redView = UIView()
-        redView.backgroundColor = randomColor()
-        redView.frame = CGRect(x: CGFloat(i) * width, y: CGFloat(j) * width, width: width, height: width)
-        view.addSubview(redView)
+        let boxView = UIView()
+        boxView.backgroundColor = randomColor()
+        boxView.frame = CGRect(x: CGFloat(i) * width, y: CGFloat(j) * width, width: width, height: width)
+        boxView.layer.borderWidth = 0.5
+        boxView.layer.borderColor = UIColor.black.cgColor
+        view.addSubview(boxView)
       }
     }
   }
