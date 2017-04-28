@@ -27,7 +27,16 @@ class ViewController: UIViewController {
         view.addSubview(boxView)
       }
     }
+    
+    view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan)))
+    
   }
+  
+  func handlePan(gesture: UIPanGestureRecognizer) {
+    let location = gesture.location(in: view)
+    print(location)
+  }
+  
   
   func randomColor() -> UIColor {
     let red = CGFloat(drand48())
