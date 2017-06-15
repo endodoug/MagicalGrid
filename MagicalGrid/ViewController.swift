@@ -70,8 +70,13 @@ class ViewController: UIViewController {
       
     }, completion: nil)
     
+    // use the function's parameter properties to do something here
     if gesture.state == .ended {
-      boxView.backgroundColor = .white
+      UIView.animate(withDuration: 0.5, delay: 0.25, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: { 
+        boxView.layer.transform = CATransform3DIdentity
+      }, completion: { (_) in
+        
+      })
     }
     
     
