@@ -51,8 +51,10 @@ class ViewController: UIViewController {
     let boxView = cells[key]  // retrieve the UIView associated with the key and give it to boxView
 //    boxView?.backgroundColor = .white
     
-    UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { 
-      boxView?.backgroundColor = .black
+    UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+      
+      boxView?.layer.transform = CATransform3DMakeScale(3, 3, 3)
+      
     }, completion: nil)
     
     
