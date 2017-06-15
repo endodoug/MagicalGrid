@@ -45,13 +45,17 @@ class ViewController: UIViewController {
     let width = view.frame.width / CGFloat(numberOfBoxesPerRow)
     let i = Int(location.x / width)
     let j = Int(location.y / width)
-    print(i, j)
+//    print(i, j)
     
-    for subview in view.subviews {
-      if subview.frame.contains(location){
-        subview.backgroundColor = .black
-      }
-    }
+    let key = "\(i) | \(j)"   // get the key from location that's touched
+    let boxView = cells[key]  // retrieve the UIView associated with the key and give it to boxView
+    boxView?.backgroundColor = .white
+    
+//    for subview in view.subviews {
+//      if subview.frame.contains(location){
+//        subview.backgroundColor = .black
+//      }
+//    }
     
   }
   
