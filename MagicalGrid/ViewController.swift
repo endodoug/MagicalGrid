@@ -70,6 +70,10 @@ class ViewController: UIViewController {
       
     }, completion: nil)
     
+    if gesture.state == .ended {
+      boxView.backgroundColor = .white
+    }
+    
     
 //    for subview in view.subviews {
 //      if subview.frame.contains(location){
