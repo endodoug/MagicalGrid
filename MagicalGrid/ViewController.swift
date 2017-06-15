@@ -12,7 +12,7 @@ class ViewController: UIViewController {
   
   let numberOfBoxesPerRow = 15
   let numberOfRows = 30
-  
+  var cells = [String: UIView]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         boxView.layer.borderWidth = 0.5
         boxView.layer.borderColor = UIColor.black.cgColor
         view.addSubview(boxView)
+        
+        let key = "\(i) | \(j)" // creates the dictionary key
+        cells[key] = boxView    // assign the boxView (dictionary UIView) to the value of the key
       }
     }
     
