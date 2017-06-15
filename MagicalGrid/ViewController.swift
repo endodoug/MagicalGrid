@@ -10,11 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
   
+  let numberOfBoxesPerRow = 15
+  let numberOfRows = 30
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let numberOfBoxesPerRow = 15
-    let numberOfRows = 30
     let width = view.frame.width / CGFloat(numberOfBoxesPerRow)
     
     for j in 0...numberOfRows {
@@ -35,6 +37,19 @@ class ViewController: UIViewController {
   func handlePan(gesture: UIPanGestureRecognizer) {
     let location = gesture.location(in: view)
     print(location)
+    
+    // determine which view is being touched
+    let width = view.frame.width / CGFloat(numberOfBoxesPerRow)
+    let i = Int(location.x / width)
+    let j = Int(location.y / width)
+    print(i, j)
+    
+    for subview in view.subviews {
+      if subview.frame.contains(location){
+        subview.backgroundColor = .black
+      }
+    }
+    
   }
   
   fileprivate func randomColor() -> UIColor {
