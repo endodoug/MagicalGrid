@@ -48,14 +48,13 @@ class ViewController: UIViewController {
 //    print(i, j)
     
     let key = "\(i) | \(j)"   // get the key from location that's touched
-    let boxView = cells[key]  // retrieve the UIView associated with the key and give it to boxView
-//    boxView?.backgroundColor = .white
+    guard let boxView = cells[key] else { return }  // retrieve the UIView associated with the key and give it to boxView
     
-    view.bringSubview(toFront: boxView!)
+    view.bringSubview(toFront: boxView)
     
     UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
       
-      boxView?.layer.transform = CATransform3DMakeScale(3, 3, 3)
+      boxView.layer.transform = CATransform3DMakeScale(3, 3, 3)
       
     }, completion: nil)
     
