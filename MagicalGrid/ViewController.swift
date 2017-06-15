@@ -37,6 +37,9 @@ class ViewController: UIViewController {
     
   }
   
+  // Store the value of box selected in the handlePan below. Optional because it starts as nil.
+  var selectedBox: UIView?
+  
   func handlePan(gesture: UIPanGestureRecognizer) {
     let location = gesture.location(in: view)
     print(location)
@@ -48,7 +51,16 @@ class ViewController: UIViewController {
 //    print(i, j)
     
     let key = "\(i) | \(j)"   // get the key from location that's touched
+    
     guard let boxView = cells[key] else { return }  // retrieve the UIView associated with the key and give it to boxView
+    
+    if selectedBox != boxView {
+      UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { 
+        self.selectedBox?.layer.transform = CATransform3DIdentity
+      }, completion: nil)
+    }
+    
+    selectedBox = boxView
     
     view.bringSubview(toFront: boxView)
     
