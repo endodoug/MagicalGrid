@@ -48,7 +48,6 @@ class ViewController: UIViewController {
     let width = view.frame.width / CGFloat(numberOfBoxesPerRow)
     let i = Int(location.x / width)
     let j = Int(location.y / width)
-//    print(i, j)
     
     let key = "\(i) | \(j)"   // get the key from location that's touched
     
@@ -78,13 +77,6 @@ class ViewController: UIViewController {
         
       })
     }
-    
-    
-//    for subview in view.subviews {
-//      if subview.frame.contains(location){
-//        subview.backgroundColor = .black
-//      }
-//    }
     
   }
   
